@@ -19,7 +19,7 @@ class MainPage(BasePage):
         assert check_service_life.text == "Назначенный срок службы – 8 лет.", 'Назначенный срок службы не подходит'
 
     def write_product_file(self):
-        with open(r'C:\Users\dan4ik_samara\Pycharm\Stilsoft\result.txt', "w") as file:
+        with open(r'path', "r+") as file:
             file.write(self.browser.current_url + '\n')
 
     def  check_requirements(self):
