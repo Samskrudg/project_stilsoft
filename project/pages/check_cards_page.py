@@ -15,8 +15,8 @@ class CheckCardsPage(BasePage):
         assert check_picture == True, 'Нет изображение товара на странице'
 
     def check_assigned_service_life(self):
-        check_service_life = self.browser.find_element(*MainPageLocators.SERVICE_LIFE)
-        assert check_service_life.text == "Назначенный срок службы – 8 лет.", 'Назначенный срок службы не подходит'
+        check_service_life = self.browser.find_element(*MainPageLocators.SERVICE_LIFE).text
+        assert int((check_service_life.split()[4])) >= 10, 'Назначенный срок службы меньше необходимого'
 
     def write_product_file(self):
         with open(r'result.txt', "w") as file:
@@ -30,3 +30,4 @@ class CheckCardsPage(BasePage):
         except AssertionError as e:
             print(f"Проверка не пройдена: {e}")
             self.write_product_file()
+
