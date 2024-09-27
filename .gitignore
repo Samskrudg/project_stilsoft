@@ -1,0 +1,6 @@
+**/venv
+.idea
+**/pycache
+**/.pytest_cache
+**/__pycache__
+results.txt
